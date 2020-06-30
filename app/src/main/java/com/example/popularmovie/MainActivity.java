@@ -136,7 +136,6 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
         if(savedInstanceState != null) {
             mMovieList = (List<Movie>) savedInstanceState.get("list");
             lastPosition = savedInstanceState.getInt("h");
-            pastVisiblesItems = lastPosition;
         }
 
 
@@ -147,8 +146,9 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
 
                 visibleItemCount = layoutManager.getChildCount();
                 totalItemCount = layoutManager.getItemCount();
-                //pastVisiblesItems = layoutManager.findFirstVisibleItemPosition();
-                pastVisiblesItems = layoutManager.findFirstCompletelyVisibleItemPosition();
+                pastVisiblesItems = layoutManager.findFirstVisibleItemPosition();
+
+
 
                 if (loading) {
                     if ((visibleItemCount + pastVisiblesItems) >= totalItemCount && (mStateList == 0)) {
@@ -349,6 +349,7 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
             }
         }
 
+        cursor.close();
         return list;
 
     }
