@@ -16,7 +16,7 @@
         android:authorities="com.example.popularmovie.data.ContentProvider"
         android:name=".data.MovieProvider"/>
         <activity android:name=".DetailActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" >
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

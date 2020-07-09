@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailActivity" >
+    tools:context=".DetailActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,26 +16,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-
-            android:src="@drawable/ic_baseline_favorite_border_48"
-            />
+            android:src="@drawable/ic_baseline_favorite_border_48" />
 
         <ImageView
             android:id="@+id/iv_detail_movie_poster"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="16dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="4dp"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/textView"
@@ -62,8 +59,8 @@
                     android:id="@+id/textView3"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/release_date"
                     android:layout_margin="16dp"
+                    android:text="@string/release_date"
                     app:layout_constraintBottom_toTopOf="@+id/textView5"
                     app:layout_constraintStart_toStartOf="@+id/textView"
                     app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -92,7 +89,7 @@
                     android:id="@+id/tv_vote_average_movie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"/>
+                    android:layout_margin="16dp" />
 
             </LinearLayout>
 

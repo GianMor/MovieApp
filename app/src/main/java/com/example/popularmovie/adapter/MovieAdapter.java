@@ -30,6 +30,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieAdapter
 
     public interface MovieAdapterOnClickHandler {
         void onClick(Movie clickedMovie);
+        void onLongClick(Movie clickedMovie);
     }
 
 
@@ -73,11 +74,27 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieAdapter
     public void setMoviesData(List<Movie> moviesData) {
         movieList = moviesData;
         notifyDataSetChanged();
-        Constants.INIT_ID_DB = 20;
     }
 
 
-    public class MovieAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public void filter(String text) {
+        if (text.isEmpty()) {
+        } else {
+            ArrayList<Movie> result = new ArrayList<>();
+            text = text.toLowerCase();
+            for (Movie item : movieList) {
+                if (item.getOriginalTitle().toLowerCase().startsWith(text)) {
+                    result.add(item);
+                }
+            }
+            this.setMoviesData(result);
+        }
+
+        notifyDataSetChanged();
+    }
+
+
+    public class MovieAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 
         final ImageView movieImage;
 
@@ -86,6 +103,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieAdapter
 
             movieImage = itemView.findViewById(R.id.iv_movie);
             itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(this);
         }
 
         @Override
@@ -95,6 +113,15 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieAdapter
             clickHandler.onClick(movieClick);
         }
 
+
+        @Override
+        public boolean onLongClick(final View v) {
+            int adapterPosition = getAdapterPosition();
+            Movie movieClick = movieList.get(adapterPosition);
+            clickHandler.onLongClick(movieClick);
+
+            return true;
+        }
     }
 
 }

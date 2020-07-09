@@ -13,7 +13,7 @@ public class MovieTableHelper implements BaseColumns {
     public static final String FAVORITE = "favorite";
     public static final String POPULARITY = "popularity";
     public static final String VOTE_COUNT = "vote_count";
-
+    public static final String BACKDROP_PATH = "backdrop_path";
 
 
     public static final String CREATE = "CREATE TABLE " + TABLE_NAME + " ( " +
@@ -26,8 +26,7 @@ public class MovieTableHelper implements BaseColumns {
             FAVORITE + " INTEGER DEFAULT 0, " +
             POPULARITY + " REAL , " +
             VOTE_COUNT + " REAL , " +
+            BACKDROP_PATH + " TEXT , " +
             "UNIQUE (" + ID_MOVIE + ") ON CONFLICT REPLACE ) ; ";
-
-
 }
 

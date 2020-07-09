@@ -11,7 +11,6 @@ public class Movie implements Parcelable {
     @SerializedName("original_title")
     private String  originalTitle;
 
-
     @SerializedName("id")
     private long  id;
 
@@ -36,8 +35,12 @@ public class Movie implements Parcelable {
     @SerializedName("vote_count")
     private float  voteCount;
 
+    @SerializedName("backdrop_path")
+    private String  backdropPath;
+
     public Movie(long id,String movieOriginalTitle,String moviePosterPath,String movieOverview,
-                 double movieVoteAverage, String movieReleaseDate,int movieFavorite,float moviePopularity,float movieVoteCount) {
+                 double movieVoteAverage, String movieReleaseDate,int movieFavorite,
+                 float moviePopularity,float movieVoteCount,String movieBackdropPath) {
 
         this.id = id;
         this.originalTitle = movieOriginalTitle;
@@ -48,6 +51,7 @@ public class Movie implements Parcelable {
         this.favorite = movieFavorite;
         this.popularity = moviePopularity;
         this.voteCount = movieVoteCount;
+        this.backdropPath = movieBackdropPath;
     }
 
 
@@ -61,6 +65,7 @@ public class Movie implements Parcelable {
         this.favorite = in.readInt();
         this.popularity = in.readFloat();
         this.voteCount = in.readFloat();
+        this.backdropPath = in.readString();
     }
 
 
@@ -81,11 +86,11 @@ public class Movie implements Parcelable {
         dest.writeInt(favorite);
         dest.writeFloat(popularity);
         dest.writeFloat(voteCount);
+        dest.writeString(backdropPath);
     }
 
 
-    public static final Parcelable.Creator<Movie> CREATOR
-            = new Parcelable.Creator<Movie>() {
+    public static final Parcelable.Creator<Movie> CREATOR = new Parcelable.Creator<Movie>() {
         public Movie createFromParcel(Parcel in) {
             return new Movie(in);
         }
@@ -167,5 +172,13 @@ public class Movie implements Parcelable {
 
     public void setVoteCount(final float voteCount) {
         this.voteCount = voteCount;
+    }
+
+    public String getBackdropPath() {
+        return backdropPath;
+    }
+
+    public void setBackdropPath(final String backdropPath) {
+        this.backdropPath = backdropPath;
     }
 }

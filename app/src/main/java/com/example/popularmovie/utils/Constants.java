@@ -10,5 +10,4 @@ public class Constants {
     public final static String MOVIE_POSTER_W500_PATH = MOVIE_POSTER_BASE_URL + MOVIE_POSTER_WIDTH_W500;
     public final static String MOVIE_POSTER_ORIGINAL_PATH = MOVIE_POSTER_BASE_URL + MOVIE_POSTER_WIDTH_ORIGINAL;
 
-    public static int INIT_ID_DB = 0;
 }

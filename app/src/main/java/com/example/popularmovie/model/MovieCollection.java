@@ -21,6 +21,18 @@ public class MovieCollection implements Parcelable {
     @SerializedName("total_pages")
     private int totalPages;
 
+    public static final Creator<MovieCollection> CREATOR = new Creator<MovieCollection>() {
+        @Override
+        public MovieCollection createFromParcel(Parcel in) {
+            return new MovieCollection(in);
+        }
+
+        @Override
+        public MovieCollection[] newArray(int size) {
+            return new MovieCollection[size];
+        }
+    };
+
     public List<Movie> getMovieResults() {
         return movieResults;
     }

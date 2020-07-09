@@ -48,6 +48,7 @@
         android:layout_margin="16dp"
         android:src="@drawable/ic_baseline_refresh_24"
         android:background="@null"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_no_movie" />
