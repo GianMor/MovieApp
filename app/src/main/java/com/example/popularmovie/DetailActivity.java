@@ -15,7 +15,7 @@ import com.squareup.picasso.Picasso;
 
 public class DetailActivity extends AppCompatActivity {
 
-    ImageView mFavoriteButton;
+    ImageView mFavoriteImage;
 
     ImageView movieImagePoster;
     TextView movieOriginalTitle,
@@ -31,13 +31,16 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        mFavoriteButton = findViewById(R.id.btn_favorite);
+        mFavoriteImage = findViewById(R.id.btn_favorite);
 
         movieImagePoster = findViewById(R.id.iv_detail_movie_poster);
 
         movieOriginalTitle = findViewById(R.id.tv_original_title_movie);
+
         movieReleaseDate = findViewById(R.id.tv_release_date_movie);
+
         movieVoteAverage = findViewById(R.id.tv_vote_average_movie);
+
         moviePlot = findViewById(R.id.tv_plot_movie);
 
         id = getIntent().getLongExtra("id_movie", 0);
@@ -57,13 +60,15 @@ public class DetailActivity extends AppCompatActivity {
         switch (mStateFavorite) {
 
             case 0:
-                mFavoriteButton.setImageResource(R.drawable.ic_baseline_favorite_border_48);
+                mFavoriteImage.setImageResource(R.drawable.ic_baseline_favorite_border_48);
                 break;
 
             case 1:
-                mFavoriteButton.setImageResource(R.drawable.ic_baseline_favorite_48);
+                mFavoriteImage.setImageResource(R.drawable.ic_baseline_favorite_48);
                 break;
         }
+
+
 
         Picasso.get()
                 .load(Constants.MOVIE_POSTER_W500_PATH + imagePath)
