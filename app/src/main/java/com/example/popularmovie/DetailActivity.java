@@ -2,6 +2,7 @@ package com.example.popularmovie;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -85,4 +86,5 @@ public class DetailActivity extends AppCompatActivity {
         movieVoteAverage.setText("" + voteAverage);
         moviePlot.setText(plot);
     }
+
 }
