@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
 
         movieRecycleView.setHasFixedSize(true);
 
-        movieAdapter = new MovieAdapter(this);
+        movieAdapter = new MovieAdapter(this,this);
 
         movieRecycleView.setAdapter(movieAdapter);
 

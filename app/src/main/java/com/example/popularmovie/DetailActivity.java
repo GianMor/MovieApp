@@ -8,6 +8,7 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.popularmovie.data.MovieProvider;
 import com.example.popularmovie.data.MovieTableHelper;
 import com.example.popularmovie.utils.Constants;
@@ -69,10 +70,15 @@ public class DetailActivity extends AppCompatActivity {
         }
 
 
+        Glide.with(this)
+                .load(Constants.MOVIE_POSTER_W500_PATH + imagePath)
+                .into(movieImagePoster);
 
+/*
         Picasso.get()
                 .load(Constants.MOVIE_POSTER_W500_PATH + imagePath)
                 .into(movieImagePoster);
+*/
 
         movieOriginalTitle.setText(originalTitle);
         movieReleaseDate.setText(releaseDate);

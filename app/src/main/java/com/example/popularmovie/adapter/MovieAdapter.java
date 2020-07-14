@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.popularmovie.R;
 import com.example.popularmovie.model.Movie;
 import com.example.popularmovie.utils.Constants;
@@ -27,6 +28,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieAdapter
 
     int pos;
 
+    Context mContext;
 
     public interface MovieAdapterOnClickHandler {
         void onClick(Movie clickedMovie);
@@ -34,10 +36,11 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieAdapter
     }
 
 
-    public MovieAdapter(MovieAdapterOnClickHandler click) {
+    public MovieAdapter(MovieAdapterOnClickHandler click,Context context) {
         clickHandler = click;
         movieList = new ArrayList<>();
         mFilteredMovies = new ArrayList<>();
+        mContext = context;
     }
 
 
@@ -58,9 +61,16 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieAdapter
         String movieItem = movieList.get(position).getPosterPath();
 
         String poster = Constants.MOVIE_POSTER_W500_PATH + movieItem;
-        Picasso.get()
+
+        Glide.with(mContext)
                 .load(poster)
                 .into(holder.movieImage);
+
+
+/*
+        Picasso.get()
+                .load(poster)
+                .into(holder.movieImage);*/
 
         pos = holder.getAdapterPosition();
 
